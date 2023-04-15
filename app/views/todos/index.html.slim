@@ -1,0 +1,14 @@
+h1 Todo一覧
+
+= link_to  "Todo追加", new_todo_path, class: "btn btn-primary"
+
+table.table
+  thead
+    tr
+      th scope="col" 題名
+      th scope="col" 詳細
+  tbody
+    - @todos.each do |todo|
+      tr
+        td = todo.title
+        td = todo.description

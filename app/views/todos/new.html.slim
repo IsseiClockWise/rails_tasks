@@ -1,0 +1,14 @@
+h1.text-center.mt-5 新規作成
+
+.row
+  .col-3
+  .col-6
+    = form_for(@todo) do |form|
+      .form-group
+        = form.label :タイトル
+        = form.text_field :title, class: 'form-control'
+      .form-group
+        = form.label :内容
+        = form.text_area :description, class: 'form-control'
+      = form.submit '作成', class: 'btn btn-primary mt-3'
+      = link_to "戻る", todos_path, class: 'btn btn-secondary mt-3'

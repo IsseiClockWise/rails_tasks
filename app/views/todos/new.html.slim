@@ -1,8 +1,10 @@
-h1.text-center.mt-5 新規作成
+= render "modal" do
+  .modal-header
+    h5.modal-title
+      | 新規作成
+    button.btn-close type="button" data-bs-dismiss="modal" aria-label="Close"
 
-.row
-  .col-3
-  .col-6
+  .modal-body
     = form_for(@todo) do |form|
       .form-group
         = form.label :タイトル

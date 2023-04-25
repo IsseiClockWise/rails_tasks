@@ -1,11 +1,12 @@
-= render "modal" do
-  .modal-header
-    h5.modal-title
-      | 新規作成
-    button.btn-close type="button" data-bs-dismiss="modal" aria-label="Close"
+= render "modal", title: "編集" do
+  / .modal-header
+  /   h5.modal-title
+  /     | 新規作成
+  /   button.btn-close type="button" data-bs-dismiss="modal" aria-label="Close"
 
-  .modal-body
-    = form_for(@todo) do |form|
+  / .modal-body
+  = turbo_frame_tag "todo"
+    = form_for(@todo, data: { turbo_frame: "todo" }) do |form|
       .form-group
         = form.label :タイトル
         = form.text_field :title, class: 'form-control'

@@ -1,0 +1,16 @@
+= turbo_stream.replace "todo" do
+  = turbo_frame_tag "todo"
+    table.table
+      thead
+        tr
+          th scope="col" 題名
+          th scope="col" 詳細
+          th scope="col"
+          th scope="col"
+      tbody
+        - @todos.each do |todo|
+          tr
+            td = todo.title
+            td = todo.description
+            td = link_to "編集", edit_todo_path(todo), class: "btn btn-sm btn-success", data: { turbo_frame: "modal" }
+            td = button_to "削除", todo, method: :delete, class: "btn btn-sm btn-danger"

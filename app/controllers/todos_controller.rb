@@ -9,7 +9,8 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.create(todo_params)
-    redirect_to todos_path
+    @todos = Todo.all
+    # redirect_to todos_path
   end
 
   def edit
